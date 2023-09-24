@@ -1,8 +1,6 @@
 import { Post } from "@/pages/posts";
-import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import { usePathname } from "next/navigation";
 
-export default async function BlogPost({ params }: GetStaticPropsContext) {
+export default async function BlogPost({ params }: { params: { post: string } }) {
     if (!params?.post) {
         return <p className="text-violet-500 font-black">Post not found</p>;
     }
@@ -17,11 +15,3 @@ export default async function BlogPost({ params }: GetStaticPropsContext) {
         </article>
     );
 }
-// async function getPosts({ params }) {
-
-//     return {
-//         props: {
-//             post,
-//         },
-//     };
-// }
