@@ -40,6 +40,30 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                     </li>
                 ))}
             </ul>
+            <FeedbackForm />
         </main>
+    );
+}
+
+function FeedbackForm() {
+    return (
+        <form name="feedback-form" method="post" data-netlify="true">
+            <input type="hidden" name="form-name" value="feedback-form" />
+            <p>
+                <label htmlFor="">
+                    Your name
+                    <input type="text" name="name" />
+                </label>
+            </p>
+            <p>
+                <label htmlFor="">
+                    Feedback
+                    <input type="text" name="feedback" />
+                </label>
+            </p>
+            <p>
+                <button>Submit</button>
+            </p>
+        </form>
     );
 }
