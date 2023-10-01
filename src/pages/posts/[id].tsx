@@ -1,11 +1,19 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { Post } from "..";
+import Image from "next/image";
 
 export default function BlogPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
-        <article className="grid max-w-md m-auto text-center mt-5">
+        <article className="grid max-w-md m-auto text-center mt-10">
             <h1 className="text-violet-500 font-black">{post.title}</h1>
-            <p>{post.body}</p>
+            <Image
+                src="/next.svg"
+                className="my-5 m-auto"
+                alt={post.title}
+                width={100}
+                height={100}
+            />
+            <p className="text-black">{post.body}</p>
         </article>
     );
 }
